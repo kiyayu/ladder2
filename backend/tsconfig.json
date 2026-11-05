@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    /* Language & Environment */
+    "target": "ES2022",
+    "module": "CommonJS",
+    "lib": ["es2022"],
+    
+    /* Project Structure */
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    /* Strictness & Safety (The strict head chef) */
+    "strict": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    
+    /* Interop & Modules */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*", "test/**/*"]
+}
