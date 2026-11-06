@@ -1,3 +1,4 @@
+const pkg = require('../package.json')
 import { Request, Response } from 'express'
 import express from 'express'
 import cors from 'cors'
@@ -10,8 +11,8 @@ app.use(cors({origin:env.clientUrl}))
 app.use(express.json())
  
 
-app.get('/health', (req, res) => {
-res.json({uptime:process.uptime(), status:'Ok'})
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', uptime: process.uptime(), version: pkg.version })
 })
 app.get('/ok', (req:Request, res:Response) => {
     res.send('Ok')
