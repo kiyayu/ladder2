@@ -4,14 +4,14 @@ import { useEffect, useState } from "react"
 
  export default function App(){
   const [responseTest, setResponseText] = useState('')
-  const [uptime, setUptime] = useState({})
+  const [uptime, setUptime] = useState()
  
   useEffect(() =>{
    fetch('http://localhost:5000/ok')
    .then(res => res.text())
    .then(data => setResponseText(data))
    .catch(err => setResponseText(err.message))
-    const helath = fetch('http://localhost:5000/helath')
+    fetch('http://localhost:5000/health')
   .then(res => res.json())
   .then(data => setUptime(data))
   .catch(err => setUptime(err))
