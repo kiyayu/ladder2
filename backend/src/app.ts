@@ -8,8 +8,19 @@ const app = express()
 app.use(cors({origin:env.clientUrl}))
 
 app.use(express.json())
- 
-app.get('/', (req:Request, res:Response) => {
+app.use((req,res,next) =>{
+    console.log('headers',{
+        method: req.method,
+        url: req.url,
+        
+    })
+    next()
+})
+
+app.get('/helath', (req, res) => {
+res.json({uptime:process.uptime(), status:'Ok'})
+})
+app.get('/ok', (req:Request, res:Response) => {
     res.send('Ok')
 }
 )
