@@ -9,7 +9,11 @@ app.use(cors({origin:env.clientUrl}))
 
 app.use(express.json())
  
-app.get('/', (req:Request, res:Response) => {
+
+app.get('/health', (req, res) => {
+res.json({uptime:process.uptime(), status:'Ok'})
+})
+app.get('/ok', (req:Request, res:Response) => {
     res.send('Ok')
 }
 )
