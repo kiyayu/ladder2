@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-
+const api =`${import.meta.env.VITE_API_URL}/`
  
 
  export default function App(){
@@ -11,7 +11,7 @@ import { useEffect, useState } from "react"
    .then(res => res.text())
    .then(data => setResponseText(data))
    .catch(err => setResponseText(err.message))
-    fetch('http://localhost:5000/health')
+    fetch(`${api}/api/health`)
   .then(res => res.json())
   .then(data => setUptime(data))
   .catch(err => setUptime(err))
